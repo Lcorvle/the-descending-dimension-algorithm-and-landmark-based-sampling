@@ -52,8 +52,12 @@ class MulticoreTSNE:
 
         self.ffi = cffi.FFI()
         self.ffi.cdef(
-            "void incrementalTsneRunDouble(double* X, int N, int D, double* Y, int noDims, double perplexity, double theta, int _numThreads, int maxIter, int randomState, int oldNum, int flag, int* _flags, int* _rows, int* _oldRows, int* _cols, int* _oldCols, double* _values, double* _oldValues);"
-            "void tsneRunDouble(double* X, int N, int D, double* Y, int noDims, double perplexity, double theta, int _numThreads, int maxIter, int randomState, int flag, int* _flags, int* _rows, int* _oldRows, int* _cols, int* _oldCols, double* _values, double* _oldValues);")
+            "void incrementalTsneRunDouble(double* X, int N, int D, double* Y, int noDims, double perplexity, "
+            "double theta, int _numThreads, int maxIter, int randomState, int oldNum, int flag, int* _flags, "
+            "int* _rows, int* _oldRows, int* _cols, int* _oldCols, double* _values, double* _oldValues);"
+            "void tsneRunDouble(double* X, int N, int D, double* Y, int noDims, double perplexity, double theta, "
+            "int _numThreads, int maxIter, int randomState, int flag, int* _flags, int* _rows, int* _oldRows, "
+            "int* _cols, int* _oldCols, double* _values, double* _oldValues);")
 
         path = os.path.dirname(os.path.realpath(__file__))
         self.C = self.ffi.dlopen(path + "\\libLandmarkBasedSamplingAndDescendingDimension.dll")
